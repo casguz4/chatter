@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>ASP.NET Core SignalR with TypeScript and Webpack</title><script defer="defer" src="/main.544fd4eaaa72ea857521.js"></script><link href="/css/main.544fd4eaaa72ea857521.css" rel="stylesheet"></head><body><div id="divMessages" class="messages"></div><div class="input-zone"><label id="lblMessage" for="tbMessage">Message:</label> <input id="tbMessage" class="input-zone-input"/> <button id="btnSend">Send</button></div><script type="module">const toast_template = (title, message) =>
+        `<h5>${title}</h5><p>${message}</p>`;
+
+      window.addEventListener('signalR', (event) => {
+        const toast = document.createElement('div');
+        toast.classList.add('toast');
+
+        const { username, message } = event.detail;
+        toast.innerHTML = toast_template(username, message);
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.remove();
+        }, 1500);
+      });</script></body></html>

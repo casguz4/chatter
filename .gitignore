@@ -1,0 +1,62 @@
+# Build Folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet
+packages/
+*.nupkg
+.nuget/
+
+# Publish output
+publish/
+*.Publish.xml
+
+# Test results and coverage
+TestResults/
+*.coverage
+*.coveragexml
+coverage/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# ASP.NET / Core secrets and local settings (adjust to your policy)
+secrets.json
+appsettings.*.Local.json
+local.settings.json
+
+# Database files
+*.mdf
+*.ldf
+*.dbmdl
+
+# Logs and temp files
+*.log
+*.pid
+*~
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Optional: lock/project files (older tooling)
+project.lock.json
+project.fragment.lock.json
+
+# Node
+node_modules
