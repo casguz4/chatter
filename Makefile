@@ -4,4 +4,4 @@ dev-dotnet:
 	dotnet watch
 
 dev-node:
-	pnpm run release --watch
+	cd Client && pnpm run build:watch
