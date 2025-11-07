@@ -4,4 +4,11 @@ dev-dotnet:
 	dotnet watch
 
 dev-node:
-	cd Client && pnpm run build:watch
+	pnpm run build:watch
+
+build:
+	pnpm run build && dotnet publish
+
+build-ci:
+	pnpm run ci && dotnet publish SignalRWebpack.sln
+	

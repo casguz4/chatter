@@ -1,6 +1,8 @@
 import * as signalR from '@microsoft/signalr';
 import { useEffect, useMemo, useState } from 'react';
 
+import type { EventMessageReceived } from './Listener';
+
 export const makeUseSignalRListenerHook = (name: string) => {
     return function useSignalRListener(listener: EventListener) {
         useEffect(() => {
@@ -26,7 +28,7 @@ const makeSignalRConnection = (hub: string) => {
 export const useSignalRConnection = (
     hub: string,
     eventName: string,
-    onEvent: (...args: [unknown]) => void,
+    onEvent: (event: EventMessageReceived) => void,
 ) => {
     const [connection, setConnection] = useState(() =>
         makeSignalRConnection(hub),

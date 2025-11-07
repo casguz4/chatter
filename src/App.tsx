@@ -6,19 +6,25 @@ import reactLogo from './assets/react.svg';
 import { useSignalRConnection } from './signalr';
 import viteLogo from '/vite.svg';
 
-function App() {
-    const connection = useSignalRConnection('/hub', EVENT_NAME, (args) => {
-        const { username, message } = args as EventMessageReceived;
-        console.log('%cTHERE WAS A NOTIFICATION', 'color: hotpink;');
-        const event = new CustomEvent(EVENT_NAME, {
+const onNotificationEvent = (event: EventMessageReceived) => {
+    const { username, message } = event;
+    console.log('%cTHERE WAS A NOTIFICATION', 'color: hotpink;');
+
+    dispatchEvent(
+        new CustomEvent(EVENT_NAME, {
             detail: {
                 message,
                 username,
             },
-        });
-
-        dispatchEvent(event);
-    });
+        }),
+    );
+};
+function App() {
+    const connection = useSignalRConnection(
+        '/hub',
+        EVENT_NAME,
+        onNotificationEvent,
+    );
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
