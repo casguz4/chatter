@@ -1,0 +1,16 @@
+node_modules
+dist
+build
+coverage
+.turbo
+.cache
+.next
+.yarn
+**/*.d.ts
+wwwroot
+.env
+.env.*
+.eslintcache
+.vscode
+.idea
+.DS_Store

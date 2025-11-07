@@ -61,3 +61,4 @@ project.fragment.lock.json
 # Node
 node_modules
 wwwroot
+.eslintcache # not sure if I want to have this for CI or not?
